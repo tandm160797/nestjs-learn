@@ -1,0 +1,13 @@
+{
+	"tw": {
+		"prefix": "tw",
+		"body": ["import tw from 'twin.macro';"],
+		"description": "tw"
+	},
+
+	"dayjs": {
+		"prefix": "dayjs",
+		"body": ["import dayjs from 'dayjs';"],
+		"description": "dayjs"
+	}
+}

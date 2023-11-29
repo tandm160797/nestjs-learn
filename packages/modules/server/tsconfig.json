@@ -1,0 +1,17 @@
+{
+	"extends": "tsconfig/nest.json",
+	"compilerOptions": {
+		"baseUrl": "src",
+		"paths": {
+			"@modules": ["./modules"],
+			"@modules/*": ["./modules/*"],
+
+			"@shared": ["./shared"],
+			"@shared/*": ["./shared/*"],
+
+			"@types": ["./types"],
+			"@types/*": ["./types/*"]
+		}
+	},
+	"include": ["../../**/*"]
+}

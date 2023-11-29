@@ -1,0 +1,11 @@
+{
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": true
+	},
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"typescript.preferences.importModuleSpecifier": "non-relative",
+
+	"tailwindCSS.experimental.classRegex": [
+		"tw`([^`]*)" // tw`...`
+	]
+}

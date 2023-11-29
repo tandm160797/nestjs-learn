@@ -1,0 +1,11 @@
+{
+	"name": "commitlint-config-standard-commitlint",
+	"version": "1.0.0",
+	"private": true,
+	"license": "MIT",
+	"main": "index.js",
+	"dependencies": {
+		"@commitlint/cli": "^17.6.5",
+		"@commitlint/config-conventional": "^17.6.5"
+	}
+}
