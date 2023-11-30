@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import APIResponse from '@shared/APIResponse';
+import APIResponse from 'shared/APIResponse';
 
 export class CreateUserDTO {
 	name: string;

@@ -1,10 +1,18 @@
 import { Body, Controller, Get, Param, Patch, Post } from '@nestjs/common';
-
-import UserService, { CreateUserDTO } from '@modules/users/UserService';
+import { MessagePattern } from '@nestjs/microservices';
+import UserService, { CreateUserDTO } from 'modules/users/UserService';
 
 @Controller('users')
 class UserController {
 	constructor(private readonly userService: UserService) {}
+
+	// Microservice Controller
+	@MessagePattern({
+		cmd: 'getHello1',
+	})
+	getHello() {
+		return 'Hello from Microservice!';
+	}
 
 	@Get()
 	list(): any {

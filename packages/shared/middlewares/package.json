@@ -1,5 +1,5 @@
 {
-	"name": "@biso24/utils",
+	"name": "@biso24/middlewares",
 	"version": "1.0.0",
 	"private": true,
 	"main": "dist/index.js",

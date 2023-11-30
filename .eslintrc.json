@@ -2,5 +2,5 @@
 	"parserOptions": {
 		"project": ["./tsconfig.json"]
 	},
-	"extends": ["standard-react"]
+	"extends": ["standard-nest"]
 }
