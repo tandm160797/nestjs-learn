@@ -2,11 +2,13 @@
 	"name": "@biso24/turbo",
 	"private": true,
 	"workspaces": [
+		"packages/servers/*",
 		"packages/services/*",
 		"packages/shared/*",
 		"packages/tools/*"
 	],
 	"dependencies": {
+		"@biso24/constants": "*",
 		"@biso24/middlewares": "*",
 		"@biso24/services": "*",
 		"@biso24/utils": "*",
@@ -43,8 +45,8 @@
 		"lint:shared": "eslint --fix \"packages/shared/**/*.{js,ts}\"",
 		"lint:services": "eslint --fix \"packages/services/**/*.{js,ts}\"",
 		"beauty": "eslint --fix && prettier --write",
-		"dev:gateway": "turbo run dev --filter=\"./packages/shared/*\" --filter=\"./packages/services/proxy\" --filter=\"./packages/services/gateway\"",
-		"build:gateway": "turbo build --filter=\"./packages/services/server\""
+		"build:shared": "turbo run build --filter=\"./packages/shared/*\"",
+		"dev:shared": "turbo run dev --filter=\"./packages/shared/*\""
 	},
 	"husky": {
 		"hooks": {

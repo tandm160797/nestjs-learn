@@ -1,0 +1,11 @@
+{
+	"name": "@biso24/constants",
+	"version": "1.0.0",
+	"private": true,
+	"main": "dist/index.js",
+	"module": "dist/index.js",
+	"scripts": {
+		"dev": "tsc --watch",
+		"build": "tsc"
+	}
+}
