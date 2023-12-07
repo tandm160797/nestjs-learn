@@ -1,10 +1,11 @@
 import { Module, type MiddlewareConsumer, type NestModule } from '@nestjs/common';
+import ExampleModule from 'ExampleModule';
+import { MongooseModule } from '@nestjs/mongoose';
 
-import { AuthModule } from '@biso24/middlewares';
 import ProxyMiddleware from 'middlewares/ProxyMiddleware';
 
 @Module({
-	imports: [AuthModule],
+	imports: [MongooseModule.forRoot(process.env.DEFAULT_MONGODB_URI), ExampleModule],
 })
 class AppModule implements NestModule {
 	configure(consumer: MiddlewareConsumer) {
