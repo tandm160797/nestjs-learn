@@ -1,5 +1,4 @@
 import { Injectable } from '@nestjs/common';
-import APIResponse from 'shared/APIResponse';
 
 export class CreateUserDTO {
 	name: string;
@@ -15,7 +14,11 @@ class UserService {
 	private readonly users: any[] = [];
 
 	list(): any {
-		return new APIResponse([], 200, 'OK');
+		return {
+			status: 200,
+			message: 'OK',
+			data: [],
+		};
 	}
 
 	detail(id: any): string {
