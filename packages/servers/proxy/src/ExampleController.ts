@@ -1,16 +1,14 @@
-// example.service.ts
+import { Controller, Get } from '@nestjs/common';
 
-import { Controller, Get, Req } from '@nestjs/common';
-import { ExampleService } from 'ExampleService';
-import { RequestWithConection } from 'middlewares/ProxyMiddleware';
+import ExampleService from 'ExampleService';
 
 @Controller()
 class ExampleController {
 	constructor(private readonly exampleService: ExampleService) {}
 
 	@Get('example')
-	async list(@Req() req: RequestWithConection) {
-		return this.exampleService.list(req);
+	async list() {
+		return this.exampleService.list();
 	}
 }
 
