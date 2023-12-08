@@ -1,11 +1,10 @@
 import { NestFactory } from '@nestjs/core';
-import { configDotenv } from 'dotenv';
+
+import 'dotenv/config';
 
 import AppModule from 'AppModule';
 
 const bootstrap = async () => {
-	configDotenv();
-
 	const app = await NestFactory.create(AppModule);
 	await app.listen(process.env.PROXY_PORT);
 };
