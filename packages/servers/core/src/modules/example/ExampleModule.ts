@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 
-import ExampleController from 'ExampleController';
-import ExampleSchema, { Example } from 'ExampleSchema';
-import { ExampleService } from 'ExampleService';
+import ExampleController from 'modules/example/ExampleController';
+import ExampleSchema, { Example } from 'modules/example/ExampleSchema';
+import ExampleService from 'modules/example/ExampleService';
 
 @Module({
 	imports: [
@@ -15,7 +15,7 @@ import { ExampleService } from 'ExampleService';
 		]),
 	],
 	controllers: [ExampleController],
-	providers: [ExampleService, Example],
+	providers: [ExampleService],
 })
 class ExampleModule {}
 
