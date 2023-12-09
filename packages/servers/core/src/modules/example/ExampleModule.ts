@@ -1,16 +1,16 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 
-import Example from 'Example';
-import ExampleController from 'ExampleController';
-import ExampleService from 'ExampleService';
+import ExampleController from 'modules/example/ExampleController';
+import ExampleSchema, { Example } from 'modules/example/ExampleSchema';
+import ExampleService from 'modules/example/ExampleService';
 
 @Module({
 	imports: [
 		MongooseModule.forFeature([
 			{
 				name: Example.name,
-				schema: Example.getSchema(),
+				schema: ExampleSchema,
 			},
 		]),
 	],

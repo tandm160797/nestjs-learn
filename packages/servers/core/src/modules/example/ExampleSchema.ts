@@ -1,12 +1,10 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { type HydratedDocument } from 'mongoose';
 
-@Schema()
-class Example {
-	static getSchema() {
-		return SchemaFactory.createForClass(Example);
-	}
+export interface ExampleDocument extends HydratedDocument<Example> {}
 
+@Schema()
+export class Example {
 	@Prop()
 	name: string;
 
@@ -17,6 +15,6 @@ class Example {
 	breed: string;
 }
 
-export interface ExampleDocument extends HydratedDocument<Example> {}
+const ExampleSchema = SchemaFactory.createForClass(Example);
 
-export default Example;
+export default ExampleSchema;

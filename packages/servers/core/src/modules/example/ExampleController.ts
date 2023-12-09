@@ -1,6 +1,6 @@
 import { Controller, Get } from '@nestjs/common';
 
-import ExampleService from 'ExampleService';
+import ExampleService from 'modules/example/ExampleService';
 
 @Controller()
 class ExampleController {
