@@ -1,13 +1,23 @@
 import { NestFactory } from '@nestjs/core';
-import { configDotenv } from 'dotenv';
+import { Transport, type MicroserviceOptions } from '@nestjs/microservices';
+
+import 'dotenv/config';
 
 import AppModule from 'AppModule';
 
 const bootstrap = async () => {
-	configDotenv();
+	const app = await NestFactory.createMicroservice<MicroserviceOptions>(AppModule, {
+		transport: Transport.RMQ,
+		options: {
+			urls: [process.env.AUTH_SERVICE_RABBITMQ_URL],
+			queue: 'auth-service',
+			queueOptions: {
+				durable: false,
+			},
+		},
+	});
 
-	const app = await NestFactory.create(AppModule);
-	await app.listen(2999);
+	await app.listen();
 };
 
 void bootstrap();
