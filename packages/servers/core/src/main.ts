@@ -1,12 +1,11 @@
 import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
-import { configDotenv } from 'dotenv';
+
+import 'dotenv/config';
 
 import AppModule from 'AppModule';
 
 const bootstrap = async () => {
-	configDotenv();
-
 	const app = await NestFactory.create(AppModule);
 	const options = new DocumentBuilder()
 		.setTitle('Core API docs')
@@ -17,7 +16,7 @@ const bootstrap = async () => {
 	const document = SwaggerModule.createDocument(app, options);
 	SwaggerModule.setup('document', app, document);
 
-	await app.listen(3001);
+	await app.listen(process.env.CORE_PORT);
 };
 
 void bootstrap();
