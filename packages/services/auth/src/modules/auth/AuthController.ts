@@ -3,7 +3,7 @@ import { MessagePattern } from '@nestjs/microservices';
 import { Request } from 'express';
 
 import AuthService from 'modules/auth/AuthService';
-import JWTAuthGuard from 'modules/auth/JWTAuthGuard';
+// import JWTAuthGuard from 'modules/auth/JWTAuthGuard';
 import LocalAuthGuard from 'modules/auth/LocalAuthGuard';
 
 @Controller('auth')
@@ -18,15 +18,12 @@ class AuthController {
 	}
 
 	@MessagePattern({
-		cmd: '/',
+		cmd: '/abc',
 	})
-	@UseGuards(JWTAuthGuard)
+	// @UseGuards(JWTAuthGuard)
 	@Get('/')
-	list(@Req() req: Request) {
-		return {
-			data: [],
-		};
-		// return req.user;
+	list(req: Request) {
+		return [];
 	}
 }
 

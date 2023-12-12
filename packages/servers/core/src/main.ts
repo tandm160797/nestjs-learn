@@ -7,13 +7,15 @@ import AppModule from 'AppModule';
 
 const bootstrap = async () => {
 	const app = await NestFactory.create(AppModule);
-	const options = new DocumentBuilder()
+
+	// Settup Swagger
+	const swaggerDocumentOptions = new DocumentBuilder()
 		.setTitle('Core API docs')
 		.addTag('users')
 		.addTag('tasks')
 		.setVersion('1.0.0')
 		.build();
-	const document = SwaggerModule.createDocument(app, options);
+	const document = SwaggerModule.createDocument(app, swaggerDocumentOptions);
 	SwaggerModule.setup('document', app, document);
 
 	await app.listen(process.env.CORE_PORT);
