@@ -10,7 +10,7 @@ const bootstrap = async () => {
 		transport: Transport.RMQ,
 		options: {
 			urls: [process.env.AUTH_SERVICE_RABBITMQ_URL],
-			queue: 'auth-service',
+			queue: 'auth_queue',
 			queueOptions: {
 				durable: false,
 			},

@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { ClientsModule, Transport } from '@nestjs/microservices';
 
 import AuthController from 'modules/auth/AuthController';
+import AuthService from 'modules/auth/AuthService';
 
 @Module({
 	imports: [
@@ -11,7 +12,7 @@ import AuthController from 'modules/auth/AuthController';
 				transport: Transport.RMQ,
 				options: {
 					urls: [process.env.AUTH_SERVICE_RABBITMQ_URL],
-					queue: 'auth-service',
+					queue: 'auth_queue',
 					queueOptions: {
 						durable: false,
 					},
@@ -20,6 +21,8 @@ import AuthController from 'modules/auth/AuthController';
 		]),
 	],
 	controllers: [AuthController],
+	providers: [AuthService],
+	exports: [AuthService],
 })
 class AuthModule {}
 
