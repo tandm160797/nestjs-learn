@@ -11,15 +11,19 @@ class AuthService {
 		@Inject('AUTH_SERVICE') private readonly authServiceClient: ClientProxy,
 	) {}
 
-	async list(request: Request) {
-		return await lastValueFrom(
-			this.authServiceClient.send(
-				{
-					cmd: '/abc',
-				},
-				{},
-			),
-		);
+	async list() {
+		try {
+			return await lastValueFrom(
+				this.authServiceClient.send(
+					{
+						cmd: '/abc',
+					},
+					{},
+				),
+			);
+		} catch (error) {
+			return [1];
+		}
 	}
 }
 

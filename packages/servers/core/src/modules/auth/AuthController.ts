@@ -1,5 +1,4 @@
-import { Controller, Get, Req } from '@nestjs/common';
-import { Request } from 'express';
+import { Controller, Get } from '@nestjs/common';
 
 import AuthService from 'modules/auth/AuthService';
 
@@ -8,8 +7,8 @@ class AuthController {
 	constructor(private readonly authService: AuthService) {}
 
 	@Get('/')
-	async list(@Req() req: Request) {
-		return this.authService.list(req);
+	async list() {
+		return this.authService.list();
 	}
 }
 

@@ -1,15 +1,13 @@
 import { Injectable } from '@nestjs/common';
-import { InjectModel } from '@nestjs/mongoose';
-import { Model } from 'mongoose';
 
-import { Example, type ExampleDocument } from 'modules/example/ExampleSchema';
+import ExampleRepository from 'modules/example/ExampleRepository';
 
 @Injectable()
 class ExampleService {
-	constructor(@InjectModel(Example.name) private readonly exampleModel: Model<ExampleDocument>) {}
+	constructor(private readonly exampleRepository: ExampleRepository) {}
 
-	async list() {
-		return await this.exampleModel.find();
+	list() {
+		return this.exampleRepository.findById('657b438a670c82f98cedc99c');
 	}
 }
 
