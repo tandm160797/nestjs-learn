@@ -1,7 +1,5 @@
 import { NestFactory } from '@nestjs/core';
 
-import 'dotenv/config';
-
 import AppModule from 'AppModule';
 
 const bootstrap = async () => {

@@ -3,17 +3,17 @@ import { type NextFunction, type Request, type Response } from 'express';
 import { createProxyMiddleware } from 'http-proxy-middleware';
 import { upperCase } from 'text-case';
 
-import { MODULES } from '@biso24/constants';
+import { Module } from '@biso24/types';
 
 @Injectable()
 class ProxyMiddleware implements NestMiddleware {
 	use(request: Request, response: Response, next: NextFunction) {
 		// ? Dummy tenantId from application
-		request.headers['tenant-id'] = 'nestjs-learn';
+		request.headers['tenant-id'] = 'tenant-b';
 
 		// ? Handles the proxy configuration
-		const createProxyMiddlewareOptions = (module: MODULES) => {
-			module = MODULES.Core;
+		const createProxyMiddlewareOptions = (module: Module) => {
+			module = Module.Core; // dummy
 			const options = {
 				target: `${process.env[`${upperCase(module)}_PROXY_URL`]}:${process.env[`${upperCase(module)}_PROXY_PORT`]}`,
 				changeOrigin: true,
@@ -26,7 +26,7 @@ class ProxyMiddleware implements NestMiddleware {
 			return options;
 		};
 
-		const module = request.headers.module as MODULES;
+		const module = request.headers.module as Module;
 		const proxyMiddlewareOptions = createProxyMiddlewareOptions(module);
 		const proxyMiddleware = createProxyMiddleware(proxyMiddlewareOptions);
 		return proxyMiddleware(request, response, next);
