@@ -7,6 +7,7 @@ import ProxyMiddleware from '@middlewares/ProxyMiddleware';
 	imports: [
 		ConfigModule.forRoot({
 			envFilePath: `.env.${process.env.NODE_ENV}`,
+			isGlobal: true,
 		}),
 	],
 })

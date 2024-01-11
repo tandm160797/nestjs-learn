@@ -22,7 +22,7 @@ class AuthController {
 	})
 	// @UseGuards(JWTAuthGuard)
 	@Get('/')
-	list(req: Request) {
+	list() {
 		return [];
 	}
 }
