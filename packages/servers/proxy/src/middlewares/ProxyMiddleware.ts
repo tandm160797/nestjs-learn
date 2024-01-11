@@ -3,7 +3,7 @@ import { type NextFunction, type Request, type Response } from 'express';
 import { createProxyMiddleware } from 'http-proxy-middleware';
 import { upperCase } from 'text-case';
 
-import { Module } from '@biso24/constants';
+import { Module } from '@biso24/types';
 
 @Injectable()
 class ProxyMiddleware implements NestMiddleware {

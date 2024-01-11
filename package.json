@@ -8,10 +8,8 @@
 		"packages/tools/*"
 	],
 	"dependencies": {
-		"@biso24/constants": "*",
-		"@biso24/middlewares": "*",
-		"@biso24/services": "*",
-		"@biso24/utils": "*",
+		"@biso24/types": "*",
+		"@biso24/tenant": "*",
 		"@nestjs/common": "^10.0.0",
 		"@nestjs/config": "^3.1.1",
 		"@nestjs/core": "^10.0.0",

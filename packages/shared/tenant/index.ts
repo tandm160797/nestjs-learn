@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 
-import TenantService from 'modules/tenant/TenantService';
+import TenantService from './TenantService';
 
 @Module({
 	imports: [
