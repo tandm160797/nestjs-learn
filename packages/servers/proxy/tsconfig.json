@@ -3,6 +3,15 @@
 
 	"compilerOptions": {
 		"outDir": "./dist",
-		"baseUrl": "src"
-	}
+
+		"baseUrl": "src",
+		"paths": {
+			"AppModule": ["AppModule"],
+
+			"@middlewares": ["middlewares"],
+			"@middlewares/*": ["middlewares/*"]
+		}
+	},
+
+	"include": ["./src/**/*"]
 }
