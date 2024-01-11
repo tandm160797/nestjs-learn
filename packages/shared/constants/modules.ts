@@ -1,4 +1,4 @@
-export enum MODULES {
+export enum Module {
 	Core = 'core',
 	HCM = 'hcm',
 	Sales = 'sales',
