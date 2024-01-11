@@ -4,8 +4,8 @@
 	"private": true,
 	"scripts": {
 		"build": "nest build",
-		"start": "node dist/main",
-		"dev": "nest start --watch",
+		"start": "NODE_ENV=production node dist/main",
+		"dev": "NODE_ENV=development nest start --watch",
 		"lint": "eslint --fix",
 		"pretty": "prettier --write",
 		"format": "eslint --fix \"src/**/*.{js,ts}\" && prettier --write \"src/**/*.{js,ts}\""

@@ -3,6 +3,14 @@
 
 	"compilerOptions": {
 		"outDir": "./dist",
-		"baseUrl": "src"
-	}
+
+		"baseUrl": "src",
+		"paths": {
+			"AppModule": ["AppModule"],
+
+			"@modules": ["modules"],
+			"@modules/*": ["modules/*"]
+		}
+	},
+	"include": ["./src/**/*"]
 }
