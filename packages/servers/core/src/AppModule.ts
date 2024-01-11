@@ -9,6 +9,7 @@ import ExampleModule from '@modules/example/ExampleModule';
 	imports: [
 		ConfigModule.forRoot({
 			envFilePath: `.env.${process.env.NODE_ENV}`,
+			isGlobal: true,
 		}),
 		TenantModule,
 		AuthModule,

@@ -7,6 +7,7 @@ import AuthModule from '@modules/auth/AuthModule';
 	imports: [
 		ConfigModule.forRoot({
 			envFilePath: `.env.${process.env.NODE_ENV}`,
+			isGlobal: true,
 		}),
 		AuthModule,
 	],
