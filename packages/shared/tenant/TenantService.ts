@@ -23,8 +23,8 @@ class TenantService implements MongooseOptionsFactory {
 		// ? Handles the multi tenant requests
 		const tenantId = this.request.headers['tenant-id'] as string;
 		if (!tenantConnectionsString.has(tenantId)) {
-			const databaseName = 'biso24';
-			const tenantConnectionString = `mongodb+srv://nestjs-learn:${tenantId}@cluster0.ii25nnr.mongodb.net/${databaseName}`;
+			const databaseName = 'tenantId';
+			const tenantConnectionString = `mongodb+srv://${process.env.MONGO_DB_USERNAME}:${process.env.MONGO_DB_PASSWORD}@cluster0.ii25nnr.mongodb.net/${databaseName}`;
 			tenantConnectionsString.set(tenantId, tenantConnectionString);
 		}
 		return tenantConnectionsString.get(tenantId);
