@@ -19,7 +19,6 @@ const bootstrap = async () => {
 			},
 		},
 	});
-
 	await app.listen();
 };
 

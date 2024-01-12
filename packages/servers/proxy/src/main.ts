@@ -9,7 +9,6 @@ const bootstrap = async () => {
 	const port = configService.get('PROXY_PORT');
 
 	const app = await NestFactory.create(AppModule);
-
 	await app.listen(port);
 };
 
