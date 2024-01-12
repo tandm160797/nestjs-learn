@@ -10,8 +10,12 @@ class AuthService {
 		private readonly jwtService: JwtService,
 	) {}
 
+	public async list() {
+		return this.userService.list();
+	}
+
 	public async validateUser(email: string, password: string) {
-		const user = await this.userService.findOne(email);
+		const user = await this.userService.validateUser(email);
 
 		if (user && user.password === password) {
 			const { password, ...restUser } = user;

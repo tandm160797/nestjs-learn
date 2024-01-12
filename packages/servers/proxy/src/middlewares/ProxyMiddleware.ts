@@ -12,7 +12,7 @@ class ProxyMiddleware implements NestMiddleware {
 
 	use(request: Request, response: Response, next: NextFunction) {
 		// ? Dummy tenantId from application
-		request.headers['tenant-id'] = 'tenant-e';
+		request.headers['tenant-id'] = 'tenant';
 
 		// ? Handles the proxy configuration
 		const createProxyMiddlewareOptions = (module: Module) => {

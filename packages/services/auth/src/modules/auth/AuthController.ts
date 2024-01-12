@@ -22,8 +22,8 @@ class AuthController {
 	})
 	// @UseGuards(JWTAuthGuard)
 	@Get('/')
-	list() {
-		return [];
+	async list() {
+		return this.authService.list();
 	}
 }
 

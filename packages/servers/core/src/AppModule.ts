@@ -1,7 +1,8 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 
-import TenantModule from '@biso24/tenant';
+import { TenantModule } from '@biso24/tenant';
+
 import AuthModule from '@modules/auth/AuthModule';
 import ExampleModule from '@modules/example/ExampleModule';
 

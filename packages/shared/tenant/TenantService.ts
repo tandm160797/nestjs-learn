@@ -2,7 +2,7 @@ import { Inject, Injectable, Scope } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { REQUEST } from '@nestjs/core';
 import { type MongooseModuleOptions, type MongooseOptionsFactory } from '@nestjs/mongoose';
-import { Request } from 'express';
+import { type Request } from 'express';
 
 const tenantConnectionsString = new Map<string, string>();
 
@@ -11,7 +11,8 @@ const tenantConnectionsString = new Map<string, string>();
 })
 class TenantService implements MongooseOptionsFactory {
 	constructor(
-		@Inject(REQUEST) private readonly request: Request,
+		@Inject(REQUEST)
+		private readonly request: Request & { data: { options: { headers: Record<string, any> } } },
 		private readonly configService: ConfigService,
 	) {}
 
@@ -25,7 +26,8 @@ class TenantService implements MongooseOptionsFactory {
 
 	private getTenantConnectionString(): string {
 		// ? Handles the multi tenant requests
-		const tenantId = this.request.headers['tenant-id'] as string;
+		const tenantId = this.request?.headers?.['tenant-id'] || this.request?.data?.options?.headers['tenant-id'];
+
 		if (!tenantConnectionsString.has(tenantId)) {
 			const databaseName = tenantId;
 			const tenantConnectionString = `mongodb+srv://${this.configService.get(
