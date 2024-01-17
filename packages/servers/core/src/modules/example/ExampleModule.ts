@@ -1,8 +1,9 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 
+import Example from '@modules/example/Example';
 import ExampleController from '@modules/example/ExampleController';
-import ExampleSchema, { Example } from '@modules/example/ExampleSchema';
+import ExampleRepository from '@modules/example/ExampleRepository';
 import ExampleService from '@modules/example/ExampleService';
 
 @Module({
@@ -10,12 +11,12 @@ import ExampleService from '@modules/example/ExampleService';
 		MongooseModule.forFeature([
 			{
 				name: Example.name,
-				schema: ExampleSchema,
+				schema: Example.schema,
 			},
 		]),
 	],
 	controllers: [ExampleController],
-	providers: [ExampleService],
+	providers: [ExampleService, ExampleRepository],
 })
 class ExampleModule {}
 

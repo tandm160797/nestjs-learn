@@ -12,7 +12,7 @@ class AuthService {
 		@Inject('AUTH_SERVICE') private readonly authServiceClient: ClientProxy,
 	) {}
 
-	async list(request: Request) {
+	async list() {
 		try {
 			const record = new RmqRecordBuilder().setOptions(getTenantHeaders(this.request));
 
