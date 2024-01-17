@@ -1,6 +1,7 @@
+import { getTenantHeaders } from '@biso24/utils';
 import { Inject, Injectable } from '@nestjs/common';
 import { REQUEST } from '@nestjs/core';
-import { ClientProxy } from '@nestjs/microservices';
+import { ClientProxy, RmqRecordBuilder } from '@nestjs/microservices';
 import { type Request } from 'express';
 import { lastValueFrom } from 'rxjs';
 
@@ -12,14 +13,22 @@ class AuthService {
 	) {}
 
 	async list(request: Request) {
-		return await lastValueFrom(
-			this.authServiceClient.send(
-				{
-					cmd: '/abc',
-				},
-				{},
-			),
-		);
+		try {
+			const record = new RmqRecordBuilder().setOptions(getTenantHeaders(this.request));
+
+			return await lastValueFrom(
+				this.authServiceClient.send(
+					{
+						cmd: '/abc',
+					},
+					record,
+				),
+			);
+		} catch (error) {
+			console.log(error);
+
+			return error;
+		}
 	}
 }
 
